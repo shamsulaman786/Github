@@ -1,0 +1,19 @@
+
+Adding of new tool to see the difference in gui
+#after downloading the diff tool we can check by:
+git config --global --list
+git diftool
+# one window will open to show the difference like vscode
+
+Merging branch cause conflict
+git merge <conflict branch>
+#here is solution
+git mergetool
+# a window will open like vscode to fix the conflict
+
+#after making changes
+git commit
+
+git log
+# Merge branch <conflict branch> is present in log
+

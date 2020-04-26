@@ -1,0 +1,132 @@
+git config --global user.name "shamsul haque"
+git config --global user.email "shamsulaman786@gmail.com"
+
+git help <verb> || git <verb> help
+we can take help using above syntax
+
+git initialize a repository
+git init
+
+ls -la
+show the files with details in current directory
+
+Before First Commit
+git status
+
+Add Gitignore File 
+code .gitignore 
+add files inside
+
+Add Files To Staging Area
+
+git add <file name> 
+# add specific file
+git add -A# add file 
+
+Remove Files From Staging Area
+
+git reset <file name> 
+# remove specific file
+
+git reset 
+# remove all files from staging area
+
+Our First Commit
+git commit -m "Commit Message"
+
+CLONING A REMOTE REPO
+git clone <url> <where to clone>
+eg:
+git clone  ../remote_repo.git .git
+
+VIEWING INFORMATION ABOUT THE REMOTE REPOSITORY 
+
+git remote -v 
+#show info about remote
+
+git branch -a 
+#show info about all branches on local & remote as well
+
+PUSHING CHANGES
+
+Commit Changes
+git diff
+git status
+git add -A
+git commit -m "commit Message"
+
+Then Push 
+git pull origin master
+git push origin master
+
+COMMON WORKFLOW
+
+Create A Branch For Desired Feature
+
+git branch featured-branch-name 
+# branch created
+
+git checkout featured-branch-name 
+#moved to featured-branch-name
+# make changes to file for adding Feature
+
+git status 
+# check status of modified file
+
+git add -A 
+# added all files in staging area
+git commit -m "<feature added message>"
+
+After Commit Push Branch To Remote 
+git push -u origin featured-branch-name
+
+git branch -a 
+# to see all branches
+
+MERGE A BRANCH
+git checkout master
+git pull origin master
+
+git branch --merged 
+# branches merged with current branch
+
+git merge featured-branch-name
+
+DELETING A BRANCH
+
+git branch -d featured-branch-name 
+# delete local branch
+
+git branch -a 
+# to see all branches on local & remote
+
+git push origin --delete featured-branch-name 
+# to delete remote branch
+
+git branch -a 
+# to see all branches on local & remote
+
+FASTER EXAMPLE OF COMMON WORKFLOW
+git branch <feature name>
+git checkout <feature name>
+# added <feature name> feature in file
+
+git status
+
+git add -A 
+# added to staging directory
+
+git commit -m "<feature name> feature added"
+git push -u origin <feature name> 
+git checkout master
+git pull origin master
+git merge <feature name>
+
+git branch --merged
+# to see the merged branch
+
+git push origin master
+
+
+
+

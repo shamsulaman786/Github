@@ -1,0 +1,71 @@
+#creating new branch to make change
+git branch <featured-branch-name>
+
+#dive into the new branch
+git checkout <featured-branch-name>
+
+# make changes
+
+git diff# to see the changes from commit-area to working-area 
+git add -A
+git stash save "stash message; about feature"
+git diff
+# no changes b/w commit & working area
+
+git status
+# nothing present in stage are or working area
+
+git stash list
+#see the stashed code. eg:
+#stash{0}: stash message; about feature
+
+git stash apply stash@{0}
+#got the changes from stash to working-area
+
+# lets see what happened with stash
+git stash list
+#stash{0}: stash message; about feature
+#stash is present in the stash list
+
+#lets check our code
+git diff # it will check changes b/w working & commit area
+# all code applied from stash is present
+
+git stash pop # delete the recent stash
+
+git stash list
+#recent stash(last stash) is droped
+
+#when we don't feature in our working area came from stash
+git stash drop stash{0}
+
+git stash list
+# stash{0} is removed
+
+git diff
+# changes applied from stash{0} has been removed too.
+
+# when we don't want all feature added from stash
+git stash clear
+
+git stash list
+# no stash is present now
+
+Made changes in master branch by mistake now want to do these changes in other branch
+git stash save "about added feature"
+
+git stash list
+#pushed stash is present here
+
+git checkout <featured-branch>
+git stash pop
+
+git diff
+# changes applied from stash
+
+git stash list
+# top stash is popped ; so not present in list
+
+# edit the .git/logs/refs/stash file to change the message of git stash 
+# or
+#git stash store -m "<new stash message>" stash@{<id>}

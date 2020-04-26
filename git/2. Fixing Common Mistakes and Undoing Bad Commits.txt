@@ -1,0 +1,69 @@
+# modified file by mistake and want to go back to last commit 
+git checkout <file name>
+
+#made changes
+git add -A 
+git commit -m "bad commit message"
+git log # to see all commits and its message
+git commit --amend -m "good commit messagge"
+git log # now we can see the commit message has been corrected
+
+There are three types of reset:
+soft , mix & hard
+
+Soft Reset 
+git log
+#copy some starting no. from the hash good commit
+git reset --soft <paste hash code of commit>
+git log # check commits
+# bad commit is removed now
+git status # check files
+# changed files in bad commit are in stagging area
+
+Mix Reset(default reset)
+git log
+#copy some starting no. from the hash good commit
+git reset <paste hash code of commit> #mix is default reset option
+git log # check commits
+# bad commit is removed now
+git status # check files
+# changed files in bad commit are in working area
+
+Hard Reset
+git log
+#copy some starting no. of the hash of good commit
+git reset --hard <paste hash code of commit> #mix is default reset option
+git log # check commits
+# bad commit is removed now
+git status # check files
+# changed files in bad commit are neither preset in stagging are nor in working area
+
+Delete Untracked files:
+git status
+# untracked files are preset
+git clean -df # d-> directory, f-> files
+#untracked files have been removed
+
+Recover Hard Reset Commit:
+git reflog # show all activities of commit
+#copy the some starting no. of hash code of required commit
+git checkout <paste hash code of required commit>
+git log
+# required commit is visible in log
+# make branch to save the required commit
+git branch backup-branch
+git checkout backup-branch
+git log
+# deleted commit is backed up and present in log
+
+Remove A Commit
+#if some developer has checked in to our pushed commit
+# then also we can remove the commit using below procedure.
+git log
+# copy hash code of unwanted commit
+git revert <hash code of unwanted commit>
+git log
+# one extra commit(revert commit) would be added and commit would be unchanged
+git log <hash of reverted commit> <hash of unwanted commit>
+#we can see the complete opposite operation of unwanted commit.
+# this process won't interrupt others

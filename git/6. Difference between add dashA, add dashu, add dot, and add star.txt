@@ -1,0 +1,122 @@
+Git Tutorial: Difference between "add -A", "add -u", "add .", and "add *"
+
+git stutus
+# files present in working area are:
+# two files are modified in sub directory
+# two files are deleted
+# three files are in untracked files category; those are new files
+
+git add -A || git add --all # both are exactly same and -A is short hand of --all
+# -A staging command option is a default functionality
+
+git status
+# staged files are:
+# modified in sub directory, deleted, untracked files
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+cd sub-directory
+git add -A
+git status
+# all files are staged like we did from parent directory
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+git add -A sub-directory/
+git status
+# deleted, modified & untracked files present in sub-directory are staged only
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+git add sub-directory/ 
+git status
+# result is as same as:
+# git add -A sub-directory/
+
+# it means
+# deleted, modified & untracked files present in sub-directory are staged only
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+git add --no-all sub-directory/
+git status
+#modified & new files are staged form the sub-directory only
+#modified & new files are not staged form the parent-directory only
+#deleted files & untracked files are not staged from anywhere
+
+#below staging command is as same as above
+git add --ignore-removal sub-directory/
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+git add -u
+git status
+# deleted & modified files are staged 
+# untracked(new) files are not staged
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+
+git add -u sub-directory/
+git status
+# deleted & modified files are staged from sub-directory only 
+# deleted & modified files are unstaged from parent-directory 
+# untracked(new) files are not staged
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+git add . || git add -A .
+# since -A is default option
+
+git status
+# all modified, untracked, deleted files are added
+
+
+git reset
+git status
+# all staged files are unstaged and now present in working area
+
+cd sub-directory
+
+git add . || git add -A .
+git status
+# since dot is pointing to sub-directory only, so
+# the modified, untracked & deleted files are staged from sub-directory only
+
+cd parent-directory
+
+git add * || git add -A *
+# not recommended since * is a shell command
+# it don't add deleted & hidden(.gitingore) files from current directory
+# unexpected result comes 
+# all modified, deleted from sub-directory, & 
+#hidden file(.gitingore) is not staged
+
+ls *
+# it shows which all fill will be added from git add *
+#eg:
+modified_parent_file.txt new_parent_file.txt
+sub-directory:
+modified_child_file.txt new_child_file.txt
+
+cd sub-directory
+git add * || git add -A *
+# staged all visible files that means below file:
+# modified_child_file.txt & new_child_file.txt
+# it don't add deleted , hidden(.gitingore) & parent files from current directory that means below file:
+# ../parent_deleted_file.txt , ../modified_parent_file.txt , child_deleted_file.txt 
+

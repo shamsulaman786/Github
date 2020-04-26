@@ -1,0 +1,24 @@
+    git config --global user.name shamsulaman786
+
+    git config --global user.email shamsulaman786@gmail.com
+
+    git config --global github.user shamsulaman786
+
+    git config --global github.token 27fa29c3ba3bad98b952ef64c3814658d8efa88a
+
+    git remote add origin "https://github.com/shamsulaman786/aws.git"
+
+    git add --a
+
+    git push -m "message"
+
+    git push -u origin master
+
+git update-index --assume-unchanged filepath
+
+You just want to go one commit back and complete your uncomplete work. Same time you don't want to lose anything you have done in that commit. For this purpose we use 
+git reset --soft HEAD~1 
+or 
+git reset --soft paste-commit-id-here 
+command. For more information, click git reset link.
+
