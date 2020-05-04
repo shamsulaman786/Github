@@ -13,8 +13,8 @@ soft , mix & hard
 
 Soft Reset 
 git log
-#copy some starting no. from the hash good commit
-git reset --soft <paste hash code of commit>
+#copy some starting no. from the good hash commit
+git reset --soft <paste good hash code of commit>
 git log # check commits
 # bad commit is removed now
 git status # check files
@@ -23,7 +23,7 @@ git status # check files
 Mix Reset(default reset)
 git log
 #copy some starting no. from the hash good commit
-git reset <paste hash code of commit> #mix is default reset option
+git reset <paste hash code of good commit> #mix is default reset option
 git log # check commits
 # bad commit is removed now
 git status # check files
@@ -32,7 +32,7 @@ git status # check files
 Hard Reset
 git log
 #copy some starting no. of the hash of good commit
-git reset --hard <paste hash code of commit> #mix is default reset option
+git reset --hard <paste hash code of good commit> #mix is default reset option
 git log # check commits
 # bad commit is removed now
 git status # check files
